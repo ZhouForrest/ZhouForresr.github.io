@@ -16,7 +16,9 @@
 <meta property="og:description" content="初始Django ​       Django是一个开放源代码的Web应用框架，由Python写成。采用了MTV的框架模式，即模型M，模板T和视图V。它最初是被开发来用于管理劳伦斯出版集团旗下的一些以新闻内容为主的网站的，即是CMS（内容管理系统）软件。并于2005年7月在BSD许可证下发布。这套框架是以比利时的吉普赛爵士吉他手Django Reinhardt来命名的。详见Django教程 使用p">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://yoursite.com/2018/05/26/使用Django快速搭建网页/img/first.jpg">
-<meta property="og:updated_time" content="2018-05-26T08:51:09.182Z">
+<meta property="og:image" content="http://yoursite.com/2018/05/26/使用Django快速搭建网页/img/second.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/05/26/使用Django快速搭建网页/img/three.jpg">
+<meta property="og:updated_time" content="2018-05-26T09:08:47.814Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用Django快速搭建网页">
 <meta name="twitter:description" content="初始Django ​       Django是一个开放源代码的Web应用框架，由Python写成。采用了MTV的框架模式，即模型M，模板T和视图V。它最初是被开发来用于管理劳伦斯出版集团旗下的一些以新闻内容为主的网站的，即是CMS（内容管理系统）软件。并于2005年7月在BSD许可证下发布。这套框架是以比利时的吉普赛爵士吉他手Django Reinhardt来命名的。详见Django教程 使用p">
@@ -185,6 +187,7 @@
 <p><img src="img/first.jpg" alt="frist"></p>
 <p>2.修改页面语言为中文</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">打开setting.py文件</span><br><span class="line">将LANGUAGE_CODE = &apos;en-us&apos;</span><br><span class="line">修改为LANGUAGE_CODE = &apos;zh-hans&apos;</span><br></pre></td></tr></table></figure>
+<p><img src="img/second.jpg" alt="second"></p>
 <p>3.创建应用</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">在命令窗口输入python manage.py startapp hrs</span><br></pre></td></tr></table></figure>
 <p>4.将应用添加到项目中</p>
@@ -201,6 +204,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">编辑应用下的views.py</span><br><span class="line">from django.shortcuts import render</span><br><span class="line">def depts(request):</span><br><span class="line">    ctx = &#123;</span><br><span class="line">        &apos;dept_list&apos;:Dept.objects.all()#给模板中的dept_list赋值</span><br><span class="line">    &#125;</span><br><span class="line">    return render(request, &apos;depts.html&apos;, context=ctx)#渲染页面</span><br></pre></td></tr></table></figure>
 <p>10.设置url</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">编辑应用下的urls.py添加url</span><br><span class="line">from hrs import views</span><br><span class="line">urlpatterns = [</span><br><span class="line">    path(&apos;depts&apos;, views.depts, name=&apos;depts&apos;),</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<p><img src="img/three.jpg" alt="three"></p>
 <p>此时在命令窗口输入python manage.py  runserver 打开浏览器输入<a href="http://127.0.0.1:8000/hrs/depts即可查看生成的网页" target="_blank" rel="noopener">http://127.0.0.1:8000/hrs/depts即可查看生成的网页</a></p>
 <p>emp页面设置步骤与depts一致</p>
 
