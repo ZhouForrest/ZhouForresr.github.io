@@ -1,0 +1,19 @@
+﻿{% extends 'base.html' %}
+{% block title %}
+	<title>首页</title>
+{% endblock %}
+
+{% block content %}
+	<frameset rows="100,*" cols="*" scrolling="No" framespacing="0"
+	frameborder="no" border="0">
+	<frame src="/templates/head.html" name="headmenu" id="mainFrame" title="mainFrame">
+	<!-- 引用头部 -->
+	<!-- 引用左边和主体部分 -->
+	<frameset rows="100*" cols="220,*" scrolling="No"
+	framespacing="0" frameborder="no" border="0">
+	<frame src="left.html" name="leftmenu" id="mainFrame" title="mainFrame">
+	<frame src="/templates/grade.html" name="main" scrolling="yes" noresize="noresize"
+	id="rightFrame" title="rightFrame">
+	</frameset>
+	</frameset>
+{% endblock %}
