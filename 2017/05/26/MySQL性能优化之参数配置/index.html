@@ -6,15 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2018/5 | 路长周的博客</title>
+  <title>MySQL性能优化之参数配置 | 路长周的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="路长周的博客">
-<meta property="og:url" content="http://yoursite.com/archives/2018/05/index.html">
+  <meta name="description" content="在MySQL数据库使用之前，根据实际业务情况，对一些重要的参数进行优化将有利于数据库的性能的提升及可靠性，首先查看MySQL的参数配置文件可以通过mysql –help|grep my.cnf，注意这个命令输出的配置文件不只一个，如：/etc/my.cnf /etc/mysql/my.cnf /usr/local/mysql/etc/my.cnf ~/.my.cnf MySQL数据库启动之后会到以">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MySQL性能优化之参数配置">
+<meta property="og:url" content="http://yoursite.com/2017/05/26/MySQL性能优化之参数配置/index.html">
 <meta property="og:site_name" content="路长周的博客">
+<meta property="og:description" content="在MySQL数据库使用之前，根据实际业务情况，对一些重要的参数进行优化将有利于数据库的性能的提升及可靠性，首先查看MySQL的参数配置文件可以通过mysql –help|grep my.cnf，注意这个命令输出的配置文件不只一个，如：/etc/my.cnf /etc/mysql/my.cnf /usr/local/mysql/etc/my.cnf ~/.my.cnf MySQL数据库启动之后会到以">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-08-11T07:33:37.697Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="路长周的博客">
+<meta name="twitter:title" content="MySQL性能优化之参数配置">
+<meta name="twitter:description" content="在MySQL数据库使用之前，根据实际业务情况，对一些重要的参数进行优化将有利于数据库的性能的提升及可靠性，首先查看MySQL的参数配置文件可以通过mysql –help|grep my.cnf，注意这个命令输出的配置文件不只一个，如：/etc/my.cnf /etc/mysql/my.cnf /usr/local/mysql/etc/my.cnf ~/.my.cnf MySQL数据库启动之后会到以">
   
     <link rel="alternative" href="/atom.xml" title="路长周的博客" type="application/atom+xml">
   
@@ -150,76 +154,171 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-MySQL性能优化之参数配置" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/05/26/使用Django快速搭建网页/" class="archive-article-date">
-  	<time datetime="2018-05-26T02:29:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-26</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/05/26/使用Django快速搭建网页/">使用Django快速搭建网页</a>
+    <h1 class="article-title" itemprop="name">
+      MySQL性能优化之参数配置
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/05/26/selenium操作/" class="archive-article-date">
-  	<time datetime="2018-05-26T02:29:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-26</time>
+        
+        <a href="/2017/05/26/MySQL性能优化之参数配置/" class="archive-article-date">
+  	<time datetime="2017-05-26T02:29:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-26</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/05/26/selenium操作/">selenium常用操作</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在MySQL数据库使用之前，根据实际业务情况，对一些重要的参数进行优化将有利于数据库的性能的提升及可靠性，首先查看MySQL的参数配置文件可以通过mysql –help|grep my.cnf，注意这个命令输出的配置文件不只一个，如：/etc/my.cnf /etc/mysql/my.cnf /usr/local/mysql/etc/my.cnf ~/.my.cnf MySQL数据库启动之后会到以下路径下查找配置文件，并且以后查找到的为准，所以一定要保证my.cnf配置文件只放到一个目录下。否则可能会找出冲突，导致你配置的参数失效。</p>
+<a id="more"></a>
+<p>打开MySQL配置⽂文件my.cnf</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">修改back_log参数值:由默认的50修改为500 back_log=500</span><br><span class="line"></span><br><span class="line">back_log值指出在MySQL暂时停⽌止回答新请求之前的短时间内多少个请求可以被存在堆栈中。也就是说，如果MySql的连接数据达到max_connections时，新来的请求将会被存在堆栈中，以等待某⼀一连接释放资源，该堆栈的数量量即back_log，如果等待连接的数量量超过back_log，将不不被授予连接资源。</span><br></pre></td></tr></table></figure>
+<p>修改mysql back_log值，</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">命令：</span><br><span class="line">show variables like &apos;back_log’; </span><br><span class="line">查看当前数量</span><br><span class="line">修改wait_timeout参数值，由默认的8⼩小时，修改为30分钟。</span><br><span class="line">wait_timeout=1800（单位为妙）</span><br></pre></td></tr></table></figure>
+<p>修改wait_timeout值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">show variables like &apos;wait_timeout’; 查看值</span><br><span class="line">修改max_connections参数值，由默认的151，修改为3000 max_connections=3000</span><br><span class="line">修改max_user_connections值，由默认的0，修改为800 max_user_connections=8000</span><br><span class="line">针对某一个账号的所有客户端并行行连接到MYSQL服务的最⼤大并行连接数。简单说是指同一个账号能够同时连接到mysql服务的最大连接数。设置为0表示不不限制。</span><br></pre></td></tr></table></figure>
+<p>修改max_user_connections值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">show variables like &apos;max_user_connections&apos;;</span><br><span class="line">修改thread_concurrency值，由⽬目前默认的8，修改为64 thread_concurrency=64</span><br><span class="line">thread_concurrency应设为CPU核数的2倍. ⽐比如有⼀一个双核的CPU, 那thread_concurrency</span><br><span class="line">的应该为4; 2个双核的cpu, thread_concurrency的值应为8.</span><br></pre></td></tr></table></figure>
+<p>修改thread_concurrency值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">show variables like &apos;thread_concurrency&apos;;</span><br><span class="line">default-storage-engine(设置MySQL的默认存储引擎) default-storage-engine= InnoDB</span><br><span class="line">创建表并指定存储类型</span><br><span class="line">CREATE TABLE mytable (id int, title char(20)) ENGINE = INNODB; show variables like &apos;%max_connections%&apos;;</span><br></pre></td></tr></table></figure>
 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2017/05/26/MySQL性能优化之参数配置/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2017/06/26/celery分布式框架/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          celery异步框架
+        
+      </div>
+    </a>
   
   
-    </div></section>
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -242,8 +341,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
